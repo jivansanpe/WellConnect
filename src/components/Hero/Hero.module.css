@@ -1,16 +1,11 @@
 .Hero {
     display: flex;
     flex-direction: column;
-    padding: 5vw;
-}
-
-.hero--photo {
-    max-width: 100%;
-    align-self: center;
+    padding: 0vw;
 }
 
 .hero--header {
-    padding-top: 5%;
+    padding-top: 1px;
     margin-bottom: 16px;
     display: flex;
     flex-wrap: wrap;
@@ -23,10 +18,4 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-}
-
-@media screen and (min-width: 768px) {
-    .hero--photo {
-        max-width: 673px;
-    }
 }

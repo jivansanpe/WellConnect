@@ -1,0 +1,16 @@
+.Collage {
+    display: flex;
+    flex-direction: column;
+    padding: 5vw;
+}
+
+.hero--photo {
+    max-width: 100%;
+    align-self: center;
+}
+
+@media screen and (min-width: 768px) {
+    .hero--photo {
+        max-width: 673px;
+    }
+}

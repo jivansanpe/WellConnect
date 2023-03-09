@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './App.css'
 import Navbar from './components/Navbar/Navbar'
+import Collage from './components/Collage/Collage'
 import Hero from './components/Hero/Hero'
 import Card from './components/Card/Card'
 import data from './data/data.js'
@@ -20,6 +21,7 @@ export default function App () {
   return (
     <div>
       <Navbar />
+      <Collage />
       <Hero />
       <section className={styles['cards-list']}>
         {cards}
