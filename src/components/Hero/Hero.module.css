@@ -1,19 +1,32 @@
 .Hero {
     display: flex;
     flex-direction: column;
-    padding: 30px;
+    padding: 5vw;
 }
 
 .hero--photo {
-    max-width: 400px;
+    max-width: 100%;
     align-self: center;
 }
 
 .hero--header {
+    padding-top: 5%;
     margin-bottom: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: #845EC2;
 }
 
 .hero--text {
     margin-top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
+@media screen and (min-width: 768px) {
+    .hero--photo {
+        max-width: 673px;
+    }
+}
