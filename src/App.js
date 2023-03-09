@@ -4,7 +4,7 @@ import Navbar from './components/Navbar/Navbar'
 import Hero from './components/Hero/Hero'
 import Card from './components/Card/Card'
 import data from './data/data.js'
-console.log(data)
+import Footer from './components/Footer/Footer'
 
 export default function App () {
   const cards = data.map(item => {
@@ -24,6 +24,7 @@ export default function App () {
       <section className={styles['cards-list']}>
         {cards}
       </section>
+      <Footer />
     </div>
   )
 }
