@@ -22,7 +22,7 @@ export default function App () {
     <div>
       <Navbar />
       <Collage />
-      <Hero />
+      <Hero title="Events A" body="Description of Events A." />
       <section className={styles['cards-list']}>
         {cards}
       </section>
