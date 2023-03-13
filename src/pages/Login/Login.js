@@ -1,12 +1,12 @@
 import React from 'react'
-import App from '../../App'
+import Navbar from '../../components/Navbar/Navbar'
 import './Login.css'
 import Footer from '../../components/Footer/Footer'
 
 export default function Login () {
   return (
     <div>
-      <App />
+      <Navbar />
       <div className="login-container">
         <h2>Login</h2>
         <form>

@@ -1,5 +1,5 @@
 import React from 'react'
-import App from '../../App'
+import Navbar from '../../components/Navbar/Navbar'
 import styles from '../../App.css'
 import Collage from '../../components/Collage/Collage'
 import Hero from '../../components/Hero/Hero'
@@ -20,7 +20,7 @@ export default function Home () {
 
   return (
     <div>
-      <App />
+      <Navbar />
       <Collage />
       <Hero title="Events A" body="Description of Events A." />
       <section className={styles['cards-list']}>
