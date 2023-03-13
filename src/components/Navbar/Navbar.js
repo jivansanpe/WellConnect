@@ -52,7 +52,7 @@ export default function Navbar() {
           onChange={handleInputChange}
         />
         <button type="submit" className={styles['nav--search-button']}>
-          Search
+          Search Events
         </button>
       </form>
       {isLoading ? (

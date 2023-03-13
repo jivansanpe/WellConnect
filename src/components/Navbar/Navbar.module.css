@@ -52,8 +52,7 @@
   display: flex;
   padding: 10px 20px;
   align-items: center;
-  margin-left: 250px;
-  margin-right: auto;
+  justify-content: flex-end; /* Add this line to position the search button to the right */
   border: 1px solid #EBEBEB;
   border-radius: 20px;
   background-color: #FFFFFF;
@@ -81,7 +80,7 @@
   cursor: pointer;
   font-size: 16px;
   padding: 10px 20px;
-  margin-left: 10px;
+  text-align: center;
   display: flex;
   justify-content: center;
   transition: background-color 0.3s ease;
