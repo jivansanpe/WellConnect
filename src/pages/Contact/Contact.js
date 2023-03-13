@@ -3,7 +3,7 @@ import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import { useState } from 'react';
 
-import './Login.css';
+import './Contact.css';
 
 export default function Login() {
   const [showAlert, setShowAlert] = useState(false);
