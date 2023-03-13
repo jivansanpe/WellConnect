@@ -1,42 +1,84 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styles from './Card.module.css'
-import star from '../../images/star.png'
+import React, { useState, useEffect } from 'react';
+import { FaArrowAltCircleRight, FaArrowAltCircleLeft, FaHeart } from 'react-icons/fa';
+import './Card.module.css';
 
-export default function Card (props) {
-  let badgeText
-  if (props.item.openSpots === 0) {
-    badgeText = 'SOLD OUT'
-  } else if (props.item.location === 'Online') {
-    badgeText = 'ONLINE'
+const Slider = () => {
+  const [currentImage, setCurrentImage] = useState(0);
+  const [images, setImages] = useState([]);
+  const length = images.length;
+
+  useEffect(() => {
+    fetch('https://api.unsplash.com/photos/random?count=4', {
+      headers: {
+        Authorization: 'Client-ID YOUR_ACCESS_KEY',
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        const imagesData = data.map((item) => {
+          return {
+            id: item.id,
+            src: item.urls.regular,
+            alt: item.alt_description,
+          };
+        });
+        setImages(imagesData);
+      })
+      .catch((error) => console.error(error));
+  }, []);
+
+  const handleWishlistClick = (imageId) => {
+    console.log(`Added image ${imageId} to wishlist`);
+    // Implement your wishlist functionality here
+  };
+
+  const handleMoreInfoClick = (imageId) => {
+    console.log(`Clicked more info button for image ${imageId}`);
+    // Implement your more information functionality here
+  };
+
+  const nextSlide = () => {
+    setCurrentImage(currentImage === length - 1 ? 0 : currentImage + 1);
+  };
+
+  const prevSlide = () => {
+    setCurrentImage(currentImage === 0 ? length - 1 : currentImage - 1);
+  };
+
+  if (images.length === 0) {
+    return null;
   }
 
   return (
-    <div className={styles.Card}>
-      {badgeText && <div className={styles['card--badge']}>{badgeText}</div>}
-      <img src={props.img} alt='Katie Zaferes' className={styles['card--image']} />
-      <div className={styles['card--stats']}>
-        <img src={star} className={styles['card--star']} />
-        <span>{props.item.stats.rating}</span>
-        <span className={styles.gray}>({props.item.stats.reviewCount}) • </span>
-        <span className={styles.gray}>{props.item.location}</span>
-      </div>
-      <p>{props.item.title}</p>
-      <p><span className={styles.bold}>From ${props.item.price}</span> / person</p>
-    </div>
-  )
-}
+    <section className='slider'>
+      <FaArrowAltCircleLeft className='left-arrow' onClick={prevSlide} />
+      <FaArrowAltCircleRight className='right-arrow' onClick={nextSlide} />
+      {images.map((image, index) => {
+        return (
+          <div
+            className={index === currentImage ? 'slide active' : 'slide'}
+            key={image.id}
+          >
+            <img src={image.src} alt={image.alt} className='image' />
+            <div className='overlay'>
+              <button
+                className='wishlist'
+                onClick={() => handleWishlistClick(image.id)}
+              >
+                <FaHeart />
+              </button>
+              <button
+                className='more-info'
+                onClick={() => handleMoreInfoClick(image.id)}
+              >
+                More Info
+              </button>
+            </div>
+          </div>
+        );
+      })}
+    </section>
+  );
+};
 
-Card.propTypes = {
-  item: PropTypes.shape({
-    stats: PropTypes.shape({
-      rating: PropTypes.number.isRequired,
-      reviewCount: PropTypes.number.isRequired
-    }).isRequired,
-    location: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    openSpots: PropTypes.number.isRequired
-  }).isRequired,
-  img: PropTypes.string.isRequired
-}
+export default Slider;
