@@ -7,10 +7,11 @@
 }
 
 .login-container h2 {
-  margin-top: 0;
-  margin-bottom: 30px;
-  font-size: 24px;
-  font-weight: 600;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 2rem 0;
+  color: #845EC2;
 }
 
 .login-container form {
@@ -34,7 +35,7 @@
 
 .login-container form input:focus {
   outline: none;
-  border-color: #0077c0;
+  border-color: #00c9a7;
 }
 
 .login-container form button[type="submit"] {
