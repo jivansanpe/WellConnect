@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Navbar.module.css';
 import logo from '../../images/logo.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -46,14 +48,12 @@ export default function Navbar() {
       <form className={styles['nav--search-form']} onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Search Events"
+          placeholder="Search events"
           className={styles['nav--search-input']}
           value={searchQuery}
           onChange={handleInputChange}
         />
-        <button type="submit" className={styles['nav--search-button']}>
-          Search Events
-        </button>
+        <button type="submit" className={styles['nav--search-button']}><FontAwesomeIcon icon={faSearch} /></button>
       </form>
       {isLoading ? (
         <div className={styles['nav--loading']}></div>
@@ -69,7 +69,7 @@ export default function Navbar() {
         </ul>
       ) : null}
       <div className={styles['nav--dropdown']}>
-        <a href="#">Dropdown</a>
+        <a href="#"><FontAwesomeIcon icon={faChevronDown} /></a>
         <div className={styles['nav--dropdown-content']}>
           <a href="/login">Login</a>
           <a href="/signup">Sign up</a>
