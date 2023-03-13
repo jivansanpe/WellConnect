@@ -20,7 +20,7 @@
 
 .nav--logo-link:hover {
   cursor: pointer;
-}
+}  
 
 .nav--list {
   display: flex;
@@ -50,10 +50,9 @@
 
 .nav--search-form {
   display: flex;
-  padding: 5px 20px;
+  padding: 10px 20px;
   align-items: center;
-  margin-left: 0px;
-  margin-right: 10px;
+  justify-content: flex-end; /* Add this line to position the search button to the right */
   border: 1px solid #EBEBEB;
   border-radius: 20px;
   background-color: #FFFFFF;
@@ -81,75 +80,74 @@
   cursor: pointer;
   font-size: 16px;
   padding: 10px 20px;
-  margin-left: 10px;
-  margin-top: -10px; /* Agregando un margen negativo para mover el elemento hacia arriba */
+  text-align: center;
   display: flex;
   justify-content: center;
   transition: background-color 0.3s ease;
   align-items: center;
-  }
+}
 
 .nav--search-button:hover {
   color: #845EC2;
 }
 
 .searchResults {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 1;
-  list-style: none;
-  background-color: #fff;
-  border-radius: 4px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-height: 300px;
-  overflow-y: scroll;
-  padding: 0;
-  margin: 0;
-  width: 100%;
+position: absolute;
+top: 100%;
+left: 0;
+z-index: 1;
+list-style: none;
+background-color: #fff;
+border-radius: 4px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+max-height: 300px;
+overflow-y: scroll;
+padding: 0;
+margin: 0;
+width: 100%;
 }
 
 .searchResult {
-  padding: 10px;
-  border-bottom: 1px solid #eee;
+padding: 10px;
+border-bottom: 1px solid #eee;
 }
 
 .searchLink {
-  color: #222;
-  text-decoration: none;
-  font-size: 14px;
+color: #222;
+text-decoration: none;
+font-size: 14px;
 }
 
 .menu {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+display: flex;
+list-style: none;
+margin: 0;
+padding: 0;
 }
 
 .menuItem {
-  margin-left: 20px;
+margin-left: 20px;
 }
 
 .menuLink {
-  color: #222;
-  text-decoration: none;
-  font-size: 16px;
+color: #222;
+text-decoration: none;
+font-size: 16px;
 }
 
 .loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 1;
-  width: 100%;
-  text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: #fff;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+padding: 20px;
+position: absolute;
+top: 100%;
+left: 0;
+z-index: 1;
+width: 100%;
+text-align: center;
 }
 
 /* Dropdown */

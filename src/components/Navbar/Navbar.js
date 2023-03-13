@@ -51,7 +51,7 @@ export default function Navbar () {
           onChange={handleInputChange}
         />
         <button type="submit" className={styles['nav--search-button']}>
-          Search
+          Search Events
         </button>
       </form>
       {isLoading
@@ -69,11 +69,11 @@ export default function Navbar () {
             ))}
           </ul>
         )}
-
       <div className={styles['nav--dropdown']}>
         <a href="#">Dropdown</a>
         <div className={styles['nav--dropdown-content']}>
           <a href="/login">Login</a>
+          <a href="/signup">Sign up</a>
           <a href="/about">About</a>
         </div>
       </div>
