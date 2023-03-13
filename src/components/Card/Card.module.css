@@ -6,6 +6,7 @@
     flex-direction: column;
     padding: 10px;
     position: relative;
+    margin-bottom: 1.4rem;
 }
 
 .card--title {
