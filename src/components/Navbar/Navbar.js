@@ -56,7 +56,7 @@ export default function Navbar() {
         </button>
       </form>
       {isLoading ? (
-        <div className={styles['nav--loading']}>Loading...</div>
+        <div className={styles['nav--loading']}></div>
       ) : searchResults.length > 0 ? (
         <ul className={styles['nav--list']}>
           {searchResults.map((result) => (
