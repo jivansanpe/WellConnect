@@ -1,46 +1,200 @@
 .Navbar {
-    height: 70px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 36px;
-    box-shadow: 0px 2.98256px 7.4564px rgba(0, 0, 0, 0.1);
-    background-color: #00C9A7;
-  }
-  
-  .nav--logo {
-    max-width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 36px;
+  box-shadow: 0px 2.98256px 7.4564px rgba(0, 0, 0, 0.1);
+  background-color: #00C9A7;
+}
+
+.nav--logo {
+  max-width: 70px;
+}
+
+.nav--logo-link {
+  display: block;
+  width: 70px;
+  height: 70px;
+}
+
+.nav--logo-link:hover {
+  cursor: pointer;
+}
+
+.nav--list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav--item {
+  margin: 0 16px;
+}
+
+.nav--link {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav--link:hover {
+  color: #845EC2;
+}
+
+/* Navbar.module.css */
+
+/* ... previous styles ... */
+
+.nav--search-form {
+  display: flex;
+  padding: 5px 20px;
+  align-items: center;
+  margin-left: 0px;
+  margin-right: 10px;
+  border: 1px solid #EBEBEB;
+  border-radius: 20px;
+  background-color: #FFFFFF;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  height: 40px;
+  width: 50%;
+}
+
+.nav--search-input {
+  border: none;
+  padding: 10px;
+  font-size: 18px;
+  flex-grow: 1;
+}
+
+.nav--search-input:focus {
+  outline: none;
+}
+
+.nav--search-button {
+  background-color: #845EC2;
+  border: none;
+  border-radius: 20px;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 20px;
+  margin-left: 10px;
+  margin-top: -10px; /* Agregando un margen negativo para mover el elemento hacia arriba */
+  display: flex;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+  align-items: center;
   }
 
-  .nav--logo-link {
-    display: block;
-    width: 70px;
-    height: 70px;
-  }
-  
-  .nav--logo-link:hover {
-    cursor: pointer;
-  }  
-  
-  .nav--list {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .nav--item {
-    margin: 0 16px;
-  }
-  
-  .nav--link {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.2s ease-in-out;
-  }
-  
-  .nav--link:hover {
-    color: #845EC2;
-  }
-  
+.nav--search-button:hover {
+  color: #845EC2;
+}
+
+.searchResults {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  list-style: none;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-height: 300px;
+  overflow-y: scroll;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.searchResult {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.searchLink {
+  color: #222;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menuItem {
+  margin-left: 20px;
+}
+
+.menuLink {
+  color: #222;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  text-align: center;
+}
+
+/* Dropdown */
+.nav--dropdown {
+  position: relative;
+}
+
+.nav--dropdown a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav--dropdown a:hover {
+  color: #845EC2;
+}
+
+.nav--dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-height: 300px;
+  overflow-y: auto;
+  display: none;
+  padding: 16px;
+}
+
+.nav--dropdown:hover .nav--dropdown-content {
+  display: block;
+}
+
+.nav--dropdown-content a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.nav--dropdown-content a:last-child {
+  margin-bottom: 0;
+}

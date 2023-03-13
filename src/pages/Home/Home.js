@@ -1,6 +1,6 @@
 import React from 'react'
-import App from '../../App'
 import styles from '../../App.css'
+import Navbar from '../../components/Navbar/Navbar'
 import Collage from '../../components/Collage/Collage'
 import Hero from '../../components/Hero/Hero'
 import Card from '../../components/Card/Card'
@@ -20,7 +20,7 @@ export default function Home () {
 
   return (
     <div>
-      <App />
+      <Navbar />
       <Collage />
       <Hero title="Events A" body="Description of Events A." />
       <section className={styles['cards-list']}>

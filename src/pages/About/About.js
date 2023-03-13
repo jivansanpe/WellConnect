@@ -1,13 +1,13 @@
 import React from 'react'
-import App from '../../App'
 import './About.css'
+import Navbar from '../../components/Navbar/Navbar'
 import knowUs from '../../images/knowUs.jpg'
 import Footer from '../../components/Footer/Footer'
 
 export default function About () {
   return (
     <div>
-      <App />
+      <Navbar />
       <h2 className='about-heading'>About Us</h2>
       <div className='about-content'>
         <img className='about-img' src={knowUs} alt='Know-us' />
