@@ -1,19 +1,17 @@
-/* eslint-disable */
-import React, { useState, useEffect } from 'react';
-import { FaArrowAltCircleRight, FaArrowAltCircleLeft, FaHeart } from 'react-icons/fa';
-import './Card.module.css';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react'
+import { FaArrowAltCircleRight, FaArrowAltCircleLeft, FaHeart } from 'react-icons/fa'
+import './Card.module.css'
 
 const Slider = () => {
-  const [currentImage, setCurrentImage] = useState(0);
-  const [images, setImages] = useState([]);
-  const length = images.length;
+  const [currentImage, setCurrentImage] = useState(0)
+  const [images, setImages] = useState([])
+  const length = images.length
 
   useEffect(() => {
     fetch('https://api.unsplash.com/photos/random?count=4', {
       headers: {
-        Authorization: '5xv5cQ_RnNnAmcj8XrY9vpaCc1A5b3sm-xpPc_243qw',
-      },
+        Authorization: '5xv5cQ_RnNnAmcj8XrY9vpaCc1A5b3sm-xpPc_243qw'
+      }
     })
       .then((response) => response.json())
       .then((data) => {
@@ -21,35 +19,35 @@ const Slider = () => {
           return {
             id: item.id,
             src: item.urls.regular,
-            alt: item.alt_description,
-          };
-        });
-        setImages(imagesData);
+            alt: item.alt_description
+          }
+        })
+        setImages(imagesData)
       })
-      .catch((error) => console.error(error));
-  }, []);
+      .catch((error) => console.error(error))
+  }, [])
 
   const handleWishlistClick = (imageId) => {
-    console.log(`Added image ${imageId} to wishlist`);
+    console.log(`Added image ${imageId} to wishlist`)
     // Implement your wishlist functionality here
-  };
+  }
 
   const handleMoreInfoClick = (imageId) => {
-    console.log(`Clicked more info button for image ${imageId}`);
+    console.log(`Clicked more info button for image ${imageId}`)
     // Implement your more information functionality here
-    window.location.href = `/event-details/${imageId}`;
-  };
+    window.location.href = `/event-details/${imageId}`
+  }
 
   const nextSlide = () => {
-    setCurrentImage(currentImage === length - 1 ? 0 : currentImage + 1);
-  };
+    setCurrentImage(currentImage === length - 1 ? 0 : currentImage + 1)
+  }
 
   const prevSlide = () => {
-    setCurrentImage(currentImage === 0 ? length - 1 : currentImage - 1);
-  };
+    setCurrentImage(currentImage === 0 ? length - 1 : currentImage - 1)
+  }
 
   if (images.length === 0) {
-    return null;
+    return null
   }
 
   return (
@@ -69,10 +67,10 @@ const Slider = () => {
               </button>
             </div>
           </div>
-        );
+        )
       })}
     </section>
-  );
-};
+  )
+}
 
-export default Slider;
+export default Slider
