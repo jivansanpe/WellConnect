@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState, useEffect } from 'react';
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft, FaHeart } from 'react-icons/fa';
 import './Card.module.css';
@@ -10,7 +11,7 @@ const Slider = () => {
   useEffect(() => {
     fetch('https://api.unsplash.com/photos/random?count=4', {
       headers: {
-        Authorization: 'Client-ID YOUR_ACCESS_KEY',
+        Authorization: '5xv5cQ_RnNnAmcj8XrY9vpaCc1A5b3sm-xpPc_243qw',
       },
     })
       .then((response) => response.json())
