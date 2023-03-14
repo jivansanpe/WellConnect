@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft, FaHeart } from 'react-icons/fa';
 import './Card.module.css';
+import { Link } from 'react-router-dom';
 
 const Slider = () => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -36,6 +37,7 @@ const Slider = () => {
   const handleMoreInfoClick = (imageId) => {
     console.log(`Clicked more info button for image ${imageId}`);
     // Implement your more information functionality here
+    window.location.href = `/event-details/${imageId}`;
   };
 
   const nextSlide = () => {
@@ -51,27 +53,18 @@ const Slider = () => {
   }
 
   return (
-    <section className='slider'>
-      <FaArrowAltCircleLeft className='left-arrow' onClick={prevSlide} />
-      <FaArrowAltCircleRight className='right-arrow' onClick={nextSlide} />
+    <section className="slider">
+      <FaArrowAltCircleLeft className="left-arrow" onClick={prevSlide} />
+      <FaArrowAltCircleRight className="right-arrow" onClick={nextSlide} />
       {images.map((image, index) => {
         return (
-          <div
-            className={index === currentImage ? 'slide active' : 'slide'}
-            key={image.id}
-          >
-            <img src={image.src} alt={image.alt} className='image' />
-            <div className='overlay'>
-              <button
-                className='wishlist'
-                onClick={() => handleWishlistClick(image.id)}
-              >
+          <div className={index === currentImage ? 'slide active' : 'slide'} key={image.id}>
+            <img src={image.src} alt={image.alt} className="image" />
+            <div className="overlay">
+              <button className="wishlist" onClick={() => handleWishlistClick(image.id)}>
                 <FaHeart />
               </button>
-              <button
-                className='more-info'
-                onClick={() => handleMoreInfoClick(image.id)}
-              >
+              <button className="more-info" onClick={() => handleMoreInfoClick(image.id)}>
                 More Info
               </button>
             </div>
