@@ -1,13 +1,10 @@
 import React from 'react'
 import './About.css'
-import Navbar from '../../components/Navbar/Navbar'
 import knowUs from '../../images/knowUs.jpg'
-import Footer from '../../components/Footer/Footer'
 
 export default function About () {
   return (
     <div>
-      <Navbar />
       <h2 className='about-heading'>About Us</h2>
       <div className='about-content'>
         <img className='about-img' src={knowUs} alt='Know-us' />
@@ -16,7 +13,6 @@ export default function About () {
         </p>
         <button className='about-button'><a href='https://sdgs.un.org/es/goals' className='about-link' target='_blank' rel='noopener noreferrer'>Learn More</a></button>
       </div>
-      <Footer />
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styles from './Navbar.module.css'
 import logo from '../../images/logo.png'
+import { NavLink } from 'react-router-dom'
 
 export default function Navbar () {
   const [searchQuery, setSearchQuery] = useState('')
@@ -39,9 +40,9 @@ export default function Navbar () {
 
   return (
     <nav className={styles.Navbar}>
-      <a href="/" className={styles['nav--logo-link']}>
+      <NavLink to="/" className={styles['nav--logo-link']}>
         <img src={logo} alt="To logo" className={styles['nav--logo']} />
-      </a>
+      </NavLink>
       <form className={styles['nav--search-form']} onSubmit={handleSubmit}>
         <input
           type="text"
@@ -72,9 +73,9 @@ export default function Navbar () {
       <div className={styles['nav--dropdown']}>
         <a href="#">Dropdown</a>
         <div className={styles['nav--dropdown-content']}>
-          <a href="/login">Login</a>
-          <a href="/signup">Sign up</a>
-          <a href="/about">About</a>
+          <NavLink to="/login">Login</NavLink>
+          <NavLink to="/signup">Sign up</NavLink>
+          <NavLink to="/about">About</NavLink>
         </div>
       </div>
     </nav>
