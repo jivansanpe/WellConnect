@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { Link } from 'react-router-dom'
-import styles from "./Notfound.module.scss"
+import styles from "./Notfound.module.css"
 
 const NotFound = () => {
     return (
