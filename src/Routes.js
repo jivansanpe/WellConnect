@@ -5,11 +5,13 @@ import About from './pages/About/About'
 import Login from './pages/Login/Login'
 import Contact from './pages/Contact/Contact'
 import Signup from './pages/Signup/Signup'
+import Navbar from './components/Navbar/Navbar'
 
 function AppRoutes () {
   return (
     <Router>
       <Routes>
+        <Route path="/testing" element={<Navbar />} />
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />

@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useLayoutEffect } from 'react'
 import styles from './Navbar.module.css'
 import logo from '../../images/logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch, faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { faSearch, faBars, faUser, faUserCircle, faUserPlus, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 
 export default function Navbar () {
   const [searchQuery, setSearchQuery] = useState('')
-  const [searchResults, setSearchResults] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
+  const [, setSearchResults] = useState([])
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -19,7 +18,6 @@ export default function Navbar () {
   }
 
   const performSearch = async () => {
-    setIsLoading(true)
     try {
       const response = await fetch(`https://api.airbnb.com/v2/search_results?client_id=3092nxybyb0otqw18e8nh5nty&_limit=10&_offset=0&location=${searchQuery}`)
       const data = await response.json()
@@ -27,11 +25,11 @@ export default function Navbar () {
     } catch (error) {
       console.error(error)
     } finally {
-      setIsLoading(false)
+      <div></div>
     }
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (searchQuery) {
       performSearch()
     } else {
@@ -54,29 +52,18 @@ export default function Navbar () {
         />
         <button type="submit" className={styles['nav--search-button']}><FontAwesomeIcon icon={faSearch} /></button>
       </form>
-      {isLoading
-        ? (
-          <div className={styles['nav--loading']}></div>
-          )
-        : searchResults.length > 0
-          ? (
-            <ul className={styles['nav--list']}>
-              {searchResults.map((result) => (
-                <li key={result.listing.id} className={styles['nav--item']}>
-                  <a href={`/listings/${result.listing.id}`} className={styles['nav--link']}>
-                    {result.listing.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-            )
-          : null}
       <div className={styles['nav--dropdown']}>
-        <a href="#"><FontAwesomeIcon icon={faChevronDown} /></a>
+        <div className={styles['nav--icons-container']}>
+          <a href="#" className={styles['nav--dropdown-icons']}>
+            <FontAwesomeIcon icon={faBars} />
+            <span className={styles['nav--icon-space']}></span>
+            <FontAwesomeIcon icon={faUserCircle} />
+          </a>
+        </div>
         <div className={styles['nav--dropdown-content']}>
-          <a href="/login">Login</a>
-          <a href="/signup">Sign up</a>
-          <a href="/about">About</a>
+          <a href="/login"><FontAwesomeIcon icon={faUser} /> Login</a>
+          <a href="/signup"><FontAwesomeIcon icon={faUserPlus} /> Sign up</a>
+          <a href="/about"><FontAwesomeIcon icon={faInfoCircle} /> About</a>
         </div>
       </div>
     </nav>
