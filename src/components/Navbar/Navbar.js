@@ -1,11 +1,13 @@
+/* eslint-disable */
 import React, { useState, useLayoutEffect } from 'react'
 import styles from './Navbar.module.css'
 import logo from '../../images/logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch, faBars, faUser, faUserCircle, faUserPlus, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
+import { faSearch, faBars, faUser, faUserCircle, faUserPlus, faInfoCircle, faUserMinus } from '@fortawesome/free-solid-svg-icons'
 import { NavLink } from 'react-router-dom'
+import { supabase } from '../../backend/client'
 
-export default function Navbar () {
+export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState('')
   const [, setSearchResults] = useState([])
 
@@ -16,6 +18,11 @@ export default function Navbar () {
 
   const handleInputChange = (event) => {
     setSearchQuery(event.target.value)
+  }
+  const logOut = async () => {
+    window.sessionStorage.removeItem('token')
+    const result = await supabase.auth.signOut()
+    console.log(result)
   }
 
   const performSearch = async () => {
@@ -64,6 +71,7 @@ export default function Navbar () {
         <div className={styles['nav--dropdown-content']}>
           <NavLink to="/login"><FontAwesomeIcon icon={faUser} /> Login</NavLink>
           <NavLink to="/signup"><FontAwesomeIcon icon={faUserPlus} /> Sign up</NavLink>
+          <NavLink onClick={logOut}><FontAwesomeIcon icon={faUserMinus} /> Sign out</NavLink>
           <NavLink to="/about"><FontAwesomeIcon icon={faInfoCircle} /> About</NavLink>
         </div>
       </div>
