@@ -12,7 +12,7 @@ export default function About () {
       <div className='about-content'>
         <img className='about-img' src={knowUs} alt='Know-us' />
         <p className='about-text'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac tortor id mi pharetra interdum. Quisque vel augue eget mauris blandit egestas. Mauris ut tellus quis elit iaculis vestibulum eget sed tellus. Nunc efficitur lobortis nisl, in rhoncus leo molestie sed. Vestibulum interdum auctor nulla, at consequat felis lobortis quis. Integer pharetra neque non velit tincidunt maximus. Sed interdum dui sit amet quam suscipit, nec faucibus nulla eleifend. Nam in ultricies sapien. Donec pellentesque felis vitae sapien rutrum, ac mollis leo vehicula. Aliquam finibus enim vitae lorem lacinia, vel tristique mauris tristique. Nam in interdum velit. Ut porttitor dolor ut ipsum vehicula, sit amet scelerisque dolor laoreet.
+          Our application connects you with events in your community that aim to create a positive impact on society. Whether you want to participate as a volunteer or attend as a participant, our platform provides an easy way to discover non-profit events in various areas of society. From charity events to environmental initiatives, our app offers an exciting way to get involved in your community and make a real difference in the world. Join us on our mission to create positive change and make a meaningful contribution to your community.
         </p>
         <button className='about-button'><a href='https://sdgs.un.org/es/goals' className='about-link' target='_blank' rel='noopener noreferrer'>Learn More</a></button>
       </div>

@@ -1,13 +1,16 @@
-import React, { useState, useLayoutEffect } from 'react'
+import React, { useState, useLayoutEffect, useRef } from 'react'
 import styles from './Navbar.module.css'
 import logo from '../../images/logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch, faBars, faUser, faUserCircle, faUserPlus, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
+import { faSearch, faBars, faUser, faUserCircle, faUserPlus, faInfoCircle, faHome } from '@fortawesome/free-solid-svg-icons'
 import { NavLink } from 'react-router-dom'
 
 export default function Navbar () {
   const [searchQuery, setSearchQuery] = useState('')
   const [, setSearchResults] = useState([])
+
+  const dropdownRef = useRef(null)
+  const [dropdownOpen, setDropdownOpen] = useState(false)
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -38,6 +41,18 @@ export default function Navbar () {
     }
   }, [searchQuery])
 
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen)
+  }
+
+  const closeDropdown = () => {
+    setDropdownOpen(false)
+  }
+
+  const handleDropdownClick = (event) => {
+    event.stopPropagation()
+  }
+
   return (
     <nav className={styles.Navbar}>
       <NavLink to="/" className={styles['nav--logo-link']}>
@@ -53,7 +68,7 @@ export default function Navbar () {
         />
         <button type="submit" className={styles['nav--search-button']}><FontAwesomeIcon icon={faSearch} /></button>
       </form>
-      <div className={styles['nav--dropdown']}>
+      <div className={styles['nav--dropdown']} ref={dropdownRef} onClick={toggleDropdown}>
         <div className={styles['nav--icons-container']}>
           <a href="#" className={styles['nav--dropdown-icons']}>
             <FontAwesomeIcon icon={faBars} />
@@ -61,11 +76,14 @@ export default function Navbar () {
             <FontAwesomeIcon icon={faUserCircle} />
           </a>
         </div>
-        <div className={styles['nav--dropdown-content']}>
-          <NavLink to="/login"><FontAwesomeIcon icon={faUser} /> Login</NavLink>
-          <NavLink to="/signup"><FontAwesomeIcon icon={faUserPlus} /> Sign up</NavLink>
-          <NavLink to="/about"><FontAwesomeIcon icon={faInfoCircle} /> About</NavLink>
-        </div>
+        {dropdownOpen && (
+          <div className={styles['nav--dropdown-content']} onClick={handleDropdownClick}>
+            <NavLink to="/" onClick={closeDropdown}><FontAwesomeIcon icon={faHome} /> Home</NavLink>
+            <NavLink to="/login" onClick={closeDropdown}><FontAwesomeIcon icon={faUser} /> Login</NavLink>
+            <NavLink to="/signup" onClick={closeDropdown}><FontAwesomeIcon icon={faUserPlus} /> Sign up</NavLink>
+            <NavLink to="/about" onClick={closeDropdown}><FontAwesomeIcon icon={faInfoCircle} /> About</NavLink>
+          </div>
+        )}
       </div>
     </nav>
   )
