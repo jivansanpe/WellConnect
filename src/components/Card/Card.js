@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './Card.module.css'
 import star from '../../images/star.png'
+import { Link } from 'react-router-dom'
 
 export default function Card (props) {
   let badgeText
@@ -21,7 +22,7 @@ export default function Card (props) {
         <span className={styles.gray}>({props.item.stats.reviewCount}) • </span>
         <span className={styles.gray}>{props.item.location}</span>
       </div>
-      <p>{props.item.title}</p>
+      <p><Link to={`/${props.item.id}`}>{props.item.title}</Link></p>
       <p><span className={styles.bold}>From ${props.item.price}</span> / person</p>
     </div>
   )
@@ -33,6 +34,7 @@ Card.propTypes = {
       rating: PropTypes.number.isRequired,
       reviewCount: PropTypes.number.isRequired
     }).isRequired,
+    id: PropTypes.number.isRequired,
     location: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
