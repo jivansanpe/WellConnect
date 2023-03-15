@@ -3,7 +3,7 @@ import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import { useState } from 'react';
 
-import './Login.css';
+import './Contact.css';
 
 export default function Login() {
   const [showAlert, setShowAlert] = useState(false);
@@ -22,8 +22,10 @@ export default function Login() {
         <form onSubmit={handleSubmit}>
           <label htmlFor="username">Username:</label>
           <input type="text" id="username" />
+
           <label htmlFor="password">Password:</label>
           <input type="password" id="password" />
+
           <button type="submit">Submit</button>
         </form>
         {showAlert && (

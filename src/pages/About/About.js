@@ -1,6 +1,6 @@
 import React from 'react'
-import './About.css'
 import Navbar from '../../components/Navbar/Navbar'
+import './About.css'
 import knowUs from '../../images/knowUs.jpg'
 import Footer from '../../components/Footer/Footer'
 

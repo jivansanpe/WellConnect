@@ -1,6 +1,6 @@
 import React from 'react'
-import styles from '../../App.css'
 import Navbar from '../../components/Navbar/Navbar'
+import styles from '../../App.css'
 import Collage from '../../components/Collage/Collage'
 import Hero from '../../components/Hero/Hero'
 import Card from '../../components/Card/Card'

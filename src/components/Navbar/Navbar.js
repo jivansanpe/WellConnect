@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useLayoutEffect } from 'react'
 import styles from './Navbar.module.css'
 import logo from '../../images/logo.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch, faBars, faUser, faUserCircle, faUserPlus, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
+import { NavLink } from 'react-router-dom'
 
 export default function Navbar () {
   const [searchQuery, setSearchQuery] = useState('')
-  const [searchResults, setSearchResults] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
+  const [, setSearchResults] = useState([])
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -17,7 +19,6 @@ export default function Navbar () {
   }
 
   const performSearch = async () => {
-    setIsLoading(true)
     try {
       const response = await fetch(`https://api.airbnb.com/v2/search_results?client_id=3092nxybyb0otqw18e8nh5nty&_limit=10&_offset=0&location=${searchQuery}`)
       const data = await response.json()
@@ -25,11 +26,11 @@ export default function Navbar () {
     } catch (error) {
       console.error(error)
     } finally {
-      setIsLoading(false)
+      <div></div>
     }
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (searchQuery) {
       performSearch()
     } else {
@@ -39,42 +40,31 @@ export default function Navbar () {
 
   return (
     <nav className={styles.Navbar}>
-      <a href="/" className={styles['nav--logo-link']}>
+      <NavLink to="/" className={styles['nav--logo-link']}>
         <img src={logo} alt="To logo" className={styles['nav--logo']} />
-      </a>
+      </NavLink>
       <form className={styles['nav--search-form']} onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Search Events"
+          placeholder="Search events"
           className={styles['nav--search-input']}
           value={searchQuery}
           onChange={handleInputChange}
         />
-        <button type="submit" className={styles['nav--search-button']}>
-          Search Events
-        </button>
+        <button type="submit" className={styles['nav--search-button']}><FontAwesomeIcon icon={faSearch} /></button>
       </form>
-      {isLoading
-        ? (
-          <div className={styles['nav--loading']}></div>
-          )
-        : searchResults.length > 0 && (
-          <ul className={styles['nav--list']}>
-            {searchResults.map((result) => (
-              <li key={result.listing.id} className={styles['nav--item']}>
-                <a href={`/listings/${result.listing.id}`} className={styles['nav--link']}>
-                  {result.listing.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        )}
       <div className={styles['nav--dropdown']}>
-        <a href="#">Dropdown</a>
+        <div className={styles['nav--icons-container']}>
+          <a href="#" className={styles['nav--dropdown-icons']}>
+            <FontAwesomeIcon icon={faBars} />
+            <span className={styles['nav--icon-space']}></span>
+            <FontAwesomeIcon icon={faUserCircle} />
+          </a>
+        </div>
         <div className={styles['nav--dropdown-content']}>
-          <a href="/login">Login</a>
-          <a href="/signup">Sign up</a>
-          <a href="/about">About</a>
+          <NavLink to="/login"><FontAwesomeIcon icon={faUser} /> Login</NavLink>
+          <NavLink to="/signup"><FontAwesomeIcon icon={faUserPlus} /> Sign up</NavLink>
+          <NavLink to="/about"><FontAwesomeIcon icon={faInfoCircle} /> About</NavLink>
         </div>
       </div>
     </nav>
