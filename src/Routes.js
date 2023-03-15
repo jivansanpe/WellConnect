@@ -12,7 +12,7 @@ function AppRoutes () {
         <Route index element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
-        <Route path='/:id' element={<EventDetails />} />
+        <Route path='/event/:id' element={<EventDetails />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
   )

@@ -22,7 +22,7 @@ export default function Card (props) {
         <span className={styles.gray}>({props.item.stats.reviewCount}) • </span>
         <span className={styles.gray}>{props.item.location}</span>
       </div>
-      <p><Link to={`/${props.item.id}`}>{props.item.title}</Link></p>
+      <p><Link to={`/event/${props.item.id}`}>{props.item.title}</Link></p>
       <p><span className={styles.bold}>From ${props.item.price}</span> / person</p>
     </div>
   )

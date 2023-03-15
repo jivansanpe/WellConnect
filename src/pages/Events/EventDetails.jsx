@@ -1,10 +1,9 @@
 /* eslint-disable */
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import PropTypes from 'prop-types'
-import Hero from '../../components/Hero/Hero'
-import Card from '../../components/Card/Card'
-import data from '../../data/data'
+import bike from '../../images/wedding.png'
+import star from '../../images/star.png'
+import Style from './EventDetials.module.scss'
 import { async } from 'q'
 
 export default function EventDetails () {
@@ -24,10 +23,19 @@ export default function EventDetails () {
   
   
     return (
-      <div>
-        <Hero title="Events Details" body="Description of Events A." />
-        <section>
-        </section>
+      <div className={Style.DetailContainer}>
+          <img src={bike} alt="" />
+          <div>
+        
+          <h2>Learn Wedding Photography</h2>
+          <p>
+           Interested in becoming a wedding photographer? For beginner and experienced photographers alike, join us in learning techniques required to leave the happy couple with memories that\'ll last a lifetime.
+          </p>
+          <div className={Style.book}>
+          <p><span>From $50</span> / person</p>
+          <button>Book now</button>
+          </div>
+        </div>
       </div>
     )
   }
