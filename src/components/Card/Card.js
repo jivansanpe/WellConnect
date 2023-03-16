@@ -49,7 +49,7 @@ export default function Card() {
               </button>
               <button className={styles['more-info']} onClick={() => handleMoreInfoClick(image.id)}>
                 More Info
-              </button> */}
+              </button>
             </div>
           </div>
         )
