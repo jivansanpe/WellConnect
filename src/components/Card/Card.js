@@ -1,14 +1,15 @@
 /* eslint-disable */
 import React, { useState, useEffect } from 'react'
 import { FaHeart } from 'react-icons/fa'
-import './Card.module.css'
+import styles from './Card.module.css'
 import { supabase } from '../../backend/client'
+import star from '../../images/star.png'
 
-export default function Card () {
+export default function Card() {
   const [images, setImages] = useState([])
 
   useEffect(() => {
-    async function fetchData () {
+    async function fetchData() {
       const result = await supabase.from('event').select()
       const result2 = result.data
       const imagesData = result2.map((item) => {
@@ -38,16 +39,17 @@ export default function Card () {
   }
 
   return (
-    <div className="Card">
+    <div className={styles['Card']}>
       {images.map((image, index) => {
         return (
-          <div>
-            <img src={image.src} alt={image.alt} className="card--image" />
+          <div key={index}>
+            <img src={image.src} alt={image.alt} className={styles['card--image']} />
             <div>
-              <button className="wishlist" onClick={() => handleWishlistClick(image.id)}>
+              <p className={styles.bold}>{image.name}</p>
+              <button className={styles.wishlist} onClick={() => handleWishlistClick(image.id)}>
                 <FaHeart />
               </button>
-              <button className="more-info" onClick={() => handleMoreInfoClick(image.id)}>
+              <button className={styles['more-info']} onClick={() => handleMoreInfoClick(image.id)}>
                 More Info
               </button>
             </div>
