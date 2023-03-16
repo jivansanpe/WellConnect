@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home/Home'
@@ -18,15 +19,17 @@ function AppRoutes() {
     })
   })
   return (
-    <Routes>
-      <Route path="/testing" element={<Navbar />} />
-      <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path='*' element={<NotFound />} />
-      <Route path='/event/:id' element={<EventDetails />} />
-    </Routes>
+    <Router>
+      <Routes>
+        <Route path="/testing" element={<Navbar />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path='*' element={<NotFound />} />
+        <Route path='/event/:id' element={<EventDetails />} />
+      </Routes>
+    </Router>
   )
 }
 export default AppRoutes

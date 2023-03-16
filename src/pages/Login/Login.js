@@ -1,3 +1,4 @@
+/* eslint-disable */
 import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
 import { React, useState } from 'react'

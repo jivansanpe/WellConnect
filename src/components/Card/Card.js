@@ -34,7 +34,7 @@ export default function Card() {
   const handleMoreInfoClick = (imageId) => {
     console.log(`Clicked more info button for image ${imageId}`)
     // Implement your more information functionality here
-    window.location.href = `/event-details/${imageId}`
+    window.location.href = `/event/${imageId}`
   }
 
   return (

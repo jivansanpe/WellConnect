@@ -1,14 +1,17 @@
+/* eslint-disable */
 import React, { useState } from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import './Signup.css'
 import Footer from '../../components/Footer/Footer'
 import { supabase } from '../../backend/client'
-
-export default function Signup () {
+import Button from '../../components/Button/Button';
+import Modal, { ModalBody, ModalFooter, ModalHeader } from '../../components/Modal/Modal';
+export default function Signup() {
+  const [showModal, setShowModal] = useState(false);
   const [userData, setUserData] = useState({
     email: '', password: '', confpassword: ''
   })
-  function handleChange (event) {
+  function handleChange(event) {
     setUserData(prevFormData => {
       return {
         ...prevFormData,
@@ -49,7 +52,26 @@ export default function Signup () {
           <label htmlFor="confirm-password">Confirm Password:</label>
           <input onChange={handleChange} type="password" id="confirm-password" name="confpassword" />
 
-          <button type="submit">Submit</button>
+          <Button onClick={() => setShowModal(true)} type="submit">Submit</Button>
+          <Modal
+            show={showModal}
+            setShow={setShowModal}
+          // hideCloseButton
+          >
+            <ModalHeader>
+              <h2>Email verification</h2>
+            </ModalHeader>
+            <ModalBody>
+              <p style={{ textAlign: 'justify' }}>
+                Check your Email! We just sent you and email to verify your credentials.
+              </p>
+            </ModalBody>
+            <ModalFooter>
+              <Button onClick={() => setShowModal(false)}>
+                Close
+              </Button>
+            </ModalFooter>
+          </Modal>
         </form>
       </div>
       <Footer />

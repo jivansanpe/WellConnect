@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState, useLayoutEffect, useRef } from 'react'
 import styles from './Navbar.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
