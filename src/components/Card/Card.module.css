@@ -1,86 +1,58 @@
-.slider {
-  position: relative;
-  height: 500px;
-  overflow: hidden;
-}
-
-.image {
-  max-width: 180px;
-  max-height: 260px;
-  object-fit: cover;
-}
-
-.slide {
-  opacity: 0;
-  transition-duration: 1s ease;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-
-.slide.active {
-  opacity: 1;
-  transition-duration: 1s;
-  transform: scale(1.08);
-  z-index: 2;
-}
-
-.left-arrow,
-.right-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-  color: white;
-  font-size: 2rem;
-  z-index: 3;
-}
-
-.left-arrow {
-  left: 20px;
-}
-
-.right-arrow {
-  right: 20px;
-}
-
-.overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  height: 80px;
-  display: flex;
-  justify-content: space-between;
+.Card {
+  font-size: 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(176px, 1fr));
+  grid-gap: 20px;
+  justify-items: center;
   align-items: center;
-  padding: 0 20px;
-  z-index: 3;
-  opacity: 0;
-  transition: opacity 0.5s ease;
+  padding: 10px;
+  position: relative;
 }
 
-.slide:hover .overlay {
-  opacity: 1;
+.card--title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card--image {
+  width: 100%;
+  border-radius: 9px;
+  margin-bottom: 9px;
+  display: flex;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 .wishlist {
-  border: none;
-  background-color: transparent;
-  color: white;
-  font-size: 1.5rem;
-  cursor: pointer;
+  background-color: #845EC2;
+  margin-left: 5px;
 }
 
 .more-info {
+  background-color: #00C9A7;
+}
+
+.wishlist,
+.more-info {
   border: none;
-  background-color: #fff;
-  color: black;
-  font-size: 1rem;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+  margin-right: 4px;
+  padding: 6px 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.wishlist:hover,
+.more-info:hover {
+  background-color: #555;
   cursor: pointer;
-  padding: 10px 20px;
-  border-radius: 20px;
+}
+
+.wishlist:active,
+.more-info:active {
+  background-color: #111;
 }

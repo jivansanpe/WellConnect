@@ -68,6 +68,6 @@ form button[type="submit"]:hover {
 
 @media screen and (max-width: 768px) {
     .login-container { 
-        height: 68.5vh;
+        height: 56.5vh;
     }
 }

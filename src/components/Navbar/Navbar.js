@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useState, useLayoutEffect, useRef } from 'react'
 import styles from './Navbar.module.css'
 import logo from '../../images/logo.png'
@@ -7,7 +6,7 @@ import { faSearch, faBars, faUser, faUserCircle, faUserPlus, faInfoCircle, faUse
 import { NavLink } from 'react-router-dom'
 import { supabase } from '../../backend/client'
 
-export default function Navbar() {
+export default function Navbar () {
   const [searchQuery, setSearchQuery] = useState('')
   const [, setSearchResults] = useState([])
 

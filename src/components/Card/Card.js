@@ -1,21 +1,28 @@
-/* eslint-disable */
 import React, { useState, useEffect } from 'react'
-import { FaArrowAltCircleRight, FaArrowAltCircleLeft, FaHeart } from 'react-icons/fa'
-import './Card.module.css'
+import { FaHeart } from 'react-icons/fa'
+import styles from './Card.module.css'
 import { supabase } from '../../backend/client'
 
-const Slider = () => {
-  const [currentImage, setCurrentImage] = useState(0)
+export default function Card() {
   const [images, setImages] = useState([])
-  const length = images.length
 
   useEffect(() => {
     async function fetchData() {
       const result = await supabase.from('event').select()
-      setImages(result.data)
+      const result2 = result.data
+      const imagesData = result2.map((item) => {
+        return {
+          id: item.id,
+          name: item.name,
+          description: item.description,
+          location: item.location,
+          src: item.image
+        }
+      })
+      setImages(imagesData)
+      console.log(imagesData)
     }
-    fetchData();
-
+    fetchData()
   }, [])
 
   const handleWishlistClick = (imageId) => {
@@ -29,39 +36,24 @@ const Slider = () => {
     window.location.href = `/event-details/${imageId}`
   }
 
-  // const nextSlide = () => {
-  //   setCurrentImage(currentImage === length - 1 ? 0 : currentImage + 1)
-  // }
-
-  // const prevSlide = () => {
-  //   setCurrentImage(currentImage === 0 ? length - 1 : currentImage - 1)
-  // }
-
-  if (images.length === 0) {
-    return null
-  }
-
   return (
-    <section className="slider">
-      <FaArrowAltCircleLeft className="left-arrow" onClick={prevSlide} />
-      <FaArrowAltCircleRight className="right-arrow" onClick={nextSlide} />
+    <div className={styles.Card}>
       {images.map((image, index) => {
         return (
-          <div className={index === currentImage ? 'slide active' : 'slide'} key={image.id}>
-            <img src={image.image} alt={image.alt} className="image" />
-            <div className="overlay">
-              {/* <button className="wishlist" onClick={() => handleWishlistClick(image.id)}>
+          <div key={index}>
+            <img src={image.src} alt={image.alt} className={styles['card--image']} />
+            <div>
+              <p className={styles.bold}>{image.name}</p>
+              <button className={styles.wishlist} onClick={() => handleWishlistClick(image.id)}>
                 <FaHeart />
               </button>
-              <button className="more-info" onClick={() => handleMoreInfoClick(image.id)}>
+              <button className={styles['more-info']} onClick={() => handleMoreInfoClick(image.id)}>
                 More Info
               </button> */}
             </div>
           </div>
         )
       })}
-    </section>
+    </div>
   )
 }
-
-export default Slider

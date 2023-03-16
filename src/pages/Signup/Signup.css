@@ -42,3 +42,15 @@
 .signup-container form button[type="submit"]:hover {
     background-color: #845EC2;
 }
+
+@media screen and (max-width: 950px) {
+    .signup-container { 
+        height: 66.6vh;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .signup-container { 
+        height: 67.5vh;
+    }
+}

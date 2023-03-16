@@ -1,18 +1,14 @@
-/* eslint-disable */
 import React, { useState } from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import './Signup.css'
 import Footer from '../../components/Footer/Footer'
-import { useNavigate } from "react-router-dom";
-import { supabase } from '../../backend/client';
+import { supabase } from '../../backend/client'
 
-export default function Signup() {
-  const navigate = useNavigate();
+export default function Signup () {
   const [userData, setUserData] = useState({
     email: '', password: '', confpassword: ''
   })
-  function handleChange(event) {
-
+  function handleChange (event) {
     setUserData(prevFormData => {
       return {
         ...prevFormData,
@@ -21,22 +17,21 @@ export default function Signup() {
     })
   }
   const onSubmit = async () => {
-    event.preventDefault();
-    console.log("aaa")
-    if (userData.confpassword == userData.password) {
+    event.preventDefault()
+    console.log('aaa')
+    if (userData.confpassword === userData.password) {
       const result = await supabase.auth.signUp({
         email: userData.email,
-        password: userData.password,
+        password: userData.password
       })
       console.log(result)
       // window.sessionStorage.setItem('token', result.data.session.access_token)
       // console.log(result.data.session.access_token)
       // navigate("/home")
     } else {
-      console.log("passwords dont match")
+      console.log('passwords dont match')
     }
-
-  };
+  }
   return (
     <div>
       <Navbar />
