@@ -1,6 +1,8 @@
+/* eslint-disable */
 import React, { useState, useEffect } from 'react'
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft, FaHeart } from 'react-icons/fa'
 import './Card.module.css'
+import { supabase } from '../../backend/client'
 
 const Slider = () => {
   const [currentImage, setCurrentImage] = useState(0)
@@ -8,23 +10,23 @@ const Slider = () => {
   const length = images.length
 
   useEffect(() => {
-    fetch('https://api.unsplash.com/photos/random?count=4', {
-      headers: {
-        Authorization: '5xv5cQ_RnNnAmcj8XrY9vpaCc1A5b3sm-xpPc_243qw'
-      }
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        const imagesData = data.map((item) => {
-          return {
-            id: item.id,
-            src: item.urls.regular,
-            alt: item.alt_description
-          }
-        })
-        setImages(imagesData)
+    async function fetchData() {
+      const result = await supabase.from('event').select()
+      const result2 = result.data;
+      const imagesData = result2.map((item) => {
+        return {
+          id: item.id,
+          name: item.name,
+          description: item.description,
+          location: item.location,
+          src: item.image
+        }
       })
-      .catch((error) => console.error(error))
+      setImages(imagesData)
+      console.log(imagesData)
+    }
+    fetchData();
+
   }, [])
 
   const handleWishlistClick = (imageId) => {
