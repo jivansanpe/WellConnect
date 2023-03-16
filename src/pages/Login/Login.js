@@ -1,19 +1,18 @@
-/* eslint-disable */
-import Navbar from '../../components/Navbar/Navbar';
-import Footer from '../../components/Footer/Footer';
-import { useState } from 'react';
-import { useNavigate } from "react-router-dom";
-import { supabase } from '../../backend/client';
+import Navbar from '../../components/Navbar/Navbar'
+import Footer from '../../components/Footer/Footer'
+import { React, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { supabase } from '../../backend/client'
 
-import './Login.css';
+import './Login.css'
 
-export default function Login() {
-  const navigate = useNavigate();
-  const [showAlert, setShowAlert] = useState(false);
+export default function Login () {
+  const navigate = useNavigate()
+  const [showAlert] = useState(false)
   const [userData, setUserData] = useState({
     email: '', password: '', confpassword: ''
   })
-  function handleChange(event) {
+  function handleChange (event) {
     setUserData(prevFormData => {
       return {
         ...prevFormData,
@@ -22,23 +21,17 @@ export default function Login() {
     })
   }
   const onSubmit = async () => {
-    event.preventDefault();
+    event.preventDefault()
     const result = await supabase.auth.signInWithPassword({
       email: userData.email,
-      password: userData.password,
+      password: userData.password
     })
     window.sessionStorage.setItem('token', result.data.session.access_token)
     console.log(result)
     // window.sessionStorage.setItem('token', result.data.session.access_token)
     // console.log(result.data.session.access_token)
-    navigate("/")
-
-  };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // handle login logic here
-    setShowAlert(true);
-  };
+    navigate('/')
+  }
 
   return (
     <div>
@@ -64,5 +57,5 @@ export default function Login() {
       </div>
       <Footer />
     </div>
-  );
+  )
 }

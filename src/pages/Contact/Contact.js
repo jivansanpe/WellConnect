@@ -1,18 +1,17 @@
-/* eslint-disable */
-import Navbar from '../../components/Navbar/Navbar';
-import Footer from '../../components/Footer/Footer';
-import { useState } from 'react';
+import Navbar from '../../components/Navbar/Navbar'
+import Footer from '../../components/Footer/Footer'
+import { React, useState } from 'react'
 
-import './Contact.css';
+import './Contact.css'
 
-export default function Login() {
-  const [showAlert, setShowAlert] = useState(false);
+export default function Login () {
+  const [showAlert, setShowAlert] = useState(false)
 
   const handleSubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault()
     // handle login logic here
-    setShowAlert(true);
-  };
+    setShowAlert(true)
+  }
 
   return (
     <div>
@@ -36,5 +35,5 @@ export default function Login() {
       </div>
       <Footer />
     </div>
-  );
+  )
 }

@@ -75,6 +75,10 @@
   outline: none;
 }
 
+.nav--search-input:focus::placeholder {
+  font-size: 0px;
+}
+
 .nav--search-button {
   background-color: #845EC2;
   border: none;
