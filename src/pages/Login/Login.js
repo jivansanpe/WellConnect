@@ -6,13 +6,13 @@ import { supabase } from '../../backend/client'
 
 import './Login.css'
 
-export default function Login () {
+export default function Login() {
   const navigate = useNavigate()
   const [showAlert] = useState(false)
   const [userData, setUserData] = useState({
     email: '', password: '', confpassword: ''
   })
-  function handleChange (event) {
+  function handleChange(event) {
     setUserData(prevFormData => {
       return {
         ...prevFormData,
@@ -35,7 +35,6 @@ export default function Login () {
 
   return (
     <div>
-      <Navbar />
       <div className="login-container">
         <h2>Login</h2>
         <form onSubmit={onSubmit}>
@@ -55,7 +54,6 @@ export default function Login () {
           </div>
         )}
       </div>
-      <Footer />
     </div>
   )
 }

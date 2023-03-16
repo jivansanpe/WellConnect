@@ -6,7 +6,7 @@ import { faSearch, faBars, faUser, faUserCircle, faUserPlus, faInfoCircle, faUse
 import { NavLink } from 'react-router-dom'
 import { supabase } from '../../backend/client'
 
-export default function Navbar () {
+export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState('')
   const [, setSearchResults] = useState([])
 
@@ -62,7 +62,9 @@ export default function Navbar () {
   return (
     <nav className={styles.Navbar}>
       <NavLink to="/" className={styles['nav--logo-link']}>
-        <img src={logo} alt="To logo" className={styles['nav--logo']} />
+        <NavLink to="/" className={styles['nav--logo-link']}>
+          <img src={logo} alt="To logo" className={styles['nav--logo']} />
+        </NavLink>
       </NavLink>
       <form className={styles['nav--search-form']} onSubmit={handleSubmit}>
         <input
@@ -88,7 +90,7 @@ export default function Navbar () {
             <NavLink to="/login" onClick={closeDropdown}><FontAwesomeIcon icon={faUser} /> Login</NavLink>
             <NavLink to="/signup" onClick={closeDropdown}><FontAwesomeIcon icon={faUserPlus} /> Sign up</NavLink>
             <NavLink onClick={logOut}><FontAwesomeIcon icon={faUserMinus} /> Sign out</NavLink>
-          <NavLink to="/about" onClick={closeDropdown}><FontAwesomeIcon icon={faInfoCircle} /> About</NavLink>
+            <NavLink to="/about" onClick={closeDropdown}><FontAwesomeIcon icon={faInfoCircle} /> About</NavLink>
           </div>
         )}
       </div>

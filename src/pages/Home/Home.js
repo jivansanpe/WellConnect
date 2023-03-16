@@ -9,7 +9,6 @@ import Footer from '../../components/Footer/Footer'
 export default function Home() {
   return (
     <div>
-      <Navbar />
       <Collage />
       <Hero title="Events" body="Check all the events!" />
       <Card />
