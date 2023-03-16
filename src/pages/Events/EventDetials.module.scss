@@ -2,7 +2,10 @@
     max-width: 1000px;
     margin: auto;
     height: 78.79vh;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+
     position: relative;
     h2 {
         text-align: center;
@@ -22,7 +25,7 @@
         }
     }
     img {
-        width: 50%;
+        width: 100%;
         margin: 4rem 1rem 4rem 0;
     }
 
@@ -53,3 +56,70 @@
     }
 
 }
+
+@media screen and (max-width: 820px) {
+    .DetailContainer {
+        margin: 0 2rem 0 2rem;
+        height: 82.9vh;
+        grid-template-columns: 1fr;
+        position: relative;
+
+    img {
+        width: 50%;
+        position: absolute;
+        left: 12rem;
+    }
+
+    div {
+        margin-top: 37rem ;
+    }
+
+    .book {
+        margin: 1rem 0;
+        p {
+            margin:0 2rem 0 0;
+
+        }
+    }
+    }
+    }
+
+    @media screen and (max-width: 768px) {
+        .DetailContainer {
+            img {
+                left: 10.7rem;
+            }
+            
+            div {
+                margin-top: 33rem;
+            }
+
+        }
+    }
+
+
+    @media screen and (max-width: 414px) {
+        .DetailContainer {
+            img {
+                left: 5rem;
+            }
+            div {
+                margin-top: 18rem;
+                h2 {
+                    font-size: 2rem;
+                }
+                p {
+                    font-size: 0.9rem;
+                    margin: 0 0 1rem 0;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 380px) { 
+        .DetailContainer {
+            height: 105vh;
+        }
+    }
+
+ 
