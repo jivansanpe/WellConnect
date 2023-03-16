@@ -12,18 +12,7 @@ const Slider = () => {
   useEffect(() => {
     async function fetchData() {
       const result = await supabase.from('event').select()
-      const result2 = result.data;
-      const imagesData = result2.map((item) => {
-        return {
-          id: item.id,
-          name: item.name,
-          description: item.description,
-          location: item.location,
-          src: item.image
-        }
-      })
-      setImages(imagesData)
-      console.log(imagesData)
+      setImages(result.data)
     }
     fetchData();
 
@@ -40,13 +29,13 @@ const Slider = () => {
     window.location.href = `/event-details/${imageId}`
   }
 
-  const nextSlide = () => {
-    setCurrentImage(currentImage === length - 1 ? 0 : currentImage + 1)
-  }
+  // const nextSlide = () => {
+  //   setCurrentImage(currentImage === length - 1 ? 0 : currentImage + 1)
+  // }
 
-  const prevSlide = () => {
-    setCurrentImage(currentImage === 0 ? length - 1 : currentImage - 1)
-  }
+  // const prevSlide = () => {
+  //   setCurrentImage(currentImage === 0 ? length - 1 : currentImage - 1)
+  // }
 
   if (images.length === 0) {
     return null
@@ -59,14 +48,14 @@ const Slider = () => {
       {images.map((image, index) => {
         return (
           <div className={index === currentImage ? 'slide active' : 'slide'} key={image.id}>
-            <img src={image.src} alt={image.alt} className="image" />
+            <img src={image.image} alt={image.alt} className="image" />
             <div className="overlay">
-              <button className="wishlist" onClick={() => handleWishlistClick(image.id)}>
+              {/* <button className="wishlist" onClick={() => handleWishlistClick(image.id)}>
                 <FaHeart />
               </button>
               <button className="more-info" onClick={() => handleMoreInfoClick(image.id)}>
                 More Info
-              </button>
+              </button> */}
             </div>
           </div>
         )
