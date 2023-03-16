@@ -1,6 +1,5 @@
 import React, { useState, useLayoutEffect, useRef } from 'react'
 import styles from './Navbar.module.css'
-import logo from '../../images/logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faBars, faUser, faUserCircle, faUserPlus, faInfoCircle, faUserMinus, faHome } from '@fortawesome/free-solid-svg-icons'
 import { NavLink } from 'react-router-dom'
@@ -61,15 +60,13 @@ export default function Navbar() {
 
   return (
     <nav className={styles.Navbar}>
-      <NavLink to="/" className={styles['nav--logo-link']}>
-        <NavLink to="/" className={styles['nav--logo-link']}>
-          <img src={logo} alt="To logo" className={styles['nav--logo']} />
-        </NavLink>
+      <NavLink to="/" style={{ textDecoration: 'none' }}>
+        <span className={styles['nav--logo']}>WellConnect</span>
       </NavLink>
       <form className={styles['nav--search-form']} onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Search events"
+          placeholder="Search"
           className={styles['nav--search-input']}
           value={searchQuery}
           onChange={handleInputChange}
