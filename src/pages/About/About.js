@@ -1,11 +1,10 @@
-/* eslint-disable */
 import React from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import './About.css'
 import knowUs from '../../images/knowUs.jpg'
 import Footer from '../../components/Footer/Footer'
 
-export default function About() {
+export default function About () {
   return (
     <div>
       <Navbar />
