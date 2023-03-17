@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom'
 import wedding from '../../images/wedding.png'
 import Style from './EventDetials.module.scss'
 import { supabase } from '../../backend/client'
+import Navbar from '../../components/Navbar/Navbar'
+import Footer from '../../components/Footer/Footer'
 
 export default function EventDetails() {
   const [event, setEvent] = useState([])
@@ -20,19 +22,23 @@ export default function EventDetails() {
 
 
   return (
-    <div className={Style.DetailContainer}>
-      <img src={event.image} alt="Wedding-image" />
-      <div>
-        <h2>{event.name}</h2>
-        <p>
-          {event.description}
-        </p>
-        <div className={Style.book}>
-          <p><span>{event.location}</span></p>
-          <button>Book now</button>
+    <>
+      <Navbar></Navbar>
+      <div className={Style.DetailContainer}>
+        <img src={event.image} alt="Wedding-image" />
+        <div>
+          <h2>{event.name}</h2>
+          <p>
+            {event.description}
+          </p>
+          <div className={Style.book}>
+            <p><span>{event.location}</span></p>
+            <button>Book now</button>
+          </div>
         </div>
       </div>
-    </div>
+      <Footer></Footer>
+    </>
   )
 }
 

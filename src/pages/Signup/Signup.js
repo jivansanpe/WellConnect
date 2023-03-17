@@ -63,7 +63,7 @@ export default function Signup() {
             </ModalHeader>
             <ModalBody>
               <p style={{ textAlign: 'justify' }}>
-                Check your Email! We just sent you an email to verify your credentials.
+                Check your Email! We just sent you and email to verify your credentials.
               </p>
             </ModalBody>
             <ModalFooter>

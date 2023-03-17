@@ -1,12 +1,14 @@
 /* eslint-disable */
 import React from 'react'
 import Navbar from '../../components/Navbar/Navbar'
+import Footer from '../../components/Footer/Footer'
 import './About.css'
 import knowUs from '../../images/knowUs.jpg'
 
 export default function About() {
   return (
     <div>
+      <Navbar></Navbar>
       <h2 className='about-heading'>About Us</h2>
       <div className='about-content'>
         <img className='about-img' src={knowUs} alt='Know-us' />
@@ -15,6 +17,7 @@ export default function About() {
         </p>
         <button className='about-button'><a href='https://sdgs.un.org/es/goals' className='about-link' target='_blank' rel='noopener noreferrer'>Learn More</a></button>
       </div>
+      <Footer></Footer>
     </div>
   )
 }

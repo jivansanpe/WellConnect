@@ -7,6 +7,7 @@
     gap: 3rem;
 
     position: relative;
+
     h2 {
         text-align: center;
         font-size: 2.5rem;
@@ -14,6 +15,7 @@
         margin: 2rem 0;
         color: #845EC2;
     }
+
     div {
         display: flex;
         flex-direction: column;
@@ -21,9 +23,10 @@
         margin: 6rem 0;
 
         p {
-           text-align: center;
+            text-align: center;
         }
     }
+
     img {
         width: 100%;
         margin: 4rem auto 4rem auto;
@@ -33,8 +36,10 @@
         margin: 4rem 0;
         display: flex;
         flex-direction: row;
+
         p {
             margin-right: 5rem;
+
             span {
                 font-weight: bold;
             }
@@ -50,6 +55,7 @@
             cursor: pointer;
             transition: background-color 0.3s ease-in-out;
         }
+
         button:hover {
             background-color: #00c9a7;
         }
@@ -64,62 +70,64 @@
         grid-template-columns: 1fr;
         position: relative;
 
-    img {
-        width: 50%;
-        position: absolute;
-        left: 12rem;
-    }
-
-    div {
-        margin-top: 37rem ;
-    }
-
-    .book {
-        margin: 1rem 0;
-        p {
-            margin:0 2rem 0 0;
-
+        img {
+            width: 50%;
+            position: absolute;
+            left: 12rem;
         }
-    }
-    }
-    }
 
-    @media screen and (max-width: 768px) {
-        .DetailContainer {
-            img {
-                left: 10.7rem;
-            }
-            
-            div {
-                margin-top: 33rem;
-            }
-
+        div {
+            margin-top: 37rem;
         }
-    }
 
+        .book {
+            margin: 1rem 0;
 
-    @media screen and (max-width: 414px) {
-        .DetailContainer {
-            img {
-                left: 5rem;
-            }
-            div {
-                margin-top: 18rem;
-                h2 {
-                    font-size: 2rem;
-                }
-                p {
-                    font-size: 0.9rem;
-                    margin: 0 0 1rem 0;
-                }
+            p {
+                margin: 0 2rem 0 0;
+
             }
         }
     }
+}
 
-    @media screen and (max-width: 380px) { 
-        .DetailContainer {
-            height: 105vh;
+@media screen and (max-width: 768px) {
+    .DetailContainer {
+        img {
+            left: 10.7rem;
+        }
+
+        div {
+            margin-top: 33rem;
+        }
+
+    }
+}
+
+
+@media screen and (max-width: 414px) {
+    .DetailContainer {
+        img {
+            left: 5rem;
+        }
+
+        div {
+            margin-top: 18rem;
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 0.9rem;
+                margin: 0 0 1rem 0;
+            }
         }
     }
+}
 
- 
+@media screen and (max-width: 380px) {
+    .DetailContainer {
+        height: 105vh;
+    }
+}
