@@ -36,6 +36,7 @@ export default function Login() {
 
   return (
     <div>
+      <Navbar />
       <div className="login-container">
         <h2>Login</h2>
         <form onSubmit={onSubmit}>
@@ -55,6 +56,7 @@ export default function Login() {
           </div>
         )}
       </div>
+      <Footer />
     </div>
   )
 }
